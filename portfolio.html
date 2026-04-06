@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田中 悠斗 | Full Stack Engineer & Tech Lead</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: radial-gradient(ellipse at top right, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-light);
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--gray);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: var(--dark-light);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 4rem;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .profile-card .role {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: var(--dark-light);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .skill-category h3 i {
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .skill-tag.highlight {
+            background: var(--gradient);
+            border: none;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 48px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+        }
+
+        .experience-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .experience-company {
+            color: var(--gray-light);
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            color: var(--gray);
+        }
+
+        .experience-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .experience-tech span {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--dark-light);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-header {
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(6, 182, 212, 0.2) 100%);
+        }
+
+        .project-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .project-header .project-type {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            padding: 24px;
+        }
+
+        .project-body p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .project-achievements {
+            margin-bottom: 16px;
+        }
+
+        .project-achievements li {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tech span {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--light);
+            text-decoration: none;
+            padding: 16px 24px;
+            background: var(--dark-light);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .contact-link i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-card {
+            background: var(--dark-light);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card h4 {
+            margin-bottom: 24px;
+            color: var(--secondary);
+        }
+
+        .language-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .language-item:last-child {
+            border-bottom: none;
+        }
+
+        .language-name {
+            font-weight: 500;
+        }
+
+        .language-level {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-light);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">YT</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>田中 悠斗</span></h1>
+                    <p class="subtitle">Full Stack Engineer & Tech Lead</p>
+                    <p>11年以上の開発経験を持つFull Stack Engineer。React/Next.js、Node.js/Python/Java/Go、AWS/GCP/Kubernetesを横断的に担当。直近4年間はTech Leadとして10〜15名規模のチームを技術面で統括。AI/LLM開発、マイクロサービスアーキテクチャの設計・実装を得意としています。</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> View Projects
+                        </a>
+                    </div>
+                    <img src="Team Meating.png" alt="Team Meeting" class="team-image" style="margin-top: 32px;">
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <img src="Graduation image 1.png" alt="田中 悠斗">
+                        </div>
+                        <h3>田中 悠斗</h3>
+                        <p class="role">Full Stack Engineer / Tech Lead</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-number">11+</div>
+                                <div class="stat-label">Years Exp</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">13</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4+</div>
+                                <div class="stat-label">Years Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>フルスタック開発からAI/ML、インフラまで幅広い技術スタック</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">React</span>
+                        <span class="skill-tag highlight">Next.js</span>
+                        <span class="skill-tag highlight">TypeScript</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Nuxt.js</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">MUI</span>
+                        <span class="skill-tag">Jest</span>
+                        <span class="skill-tag">Cypress</span>
+                        <span class="skill-tag">Playwright</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Node.js</span>
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag highlight">NestJS</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">REST API</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">PostgreSQL</span>
+                        <span class="skill-tag highlight">MySQL</span>
+                        <span class="skill-tag highlight">Redis</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">TimescaleDB</span>
+                        <span class="skill-tag">Oracle</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Infrastructure & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">AWS</span>
+                        <span class="skill-tag highlight">Docker</span>
+                        <span class="skill-tag highlight">Kubernetes</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> AI / Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">OpenAI API</span>
+                        <span class="skill-tag highlight">LangChain</span>
+                        <span class="skill-tag highlight">RAG</span>
+                        <span class="skill-tag">LlamaIndex</span>
+                        <span class="skill-tag">Pinecone</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">scikit-learn</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-stream"></i> Architecture & Messaging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Microservices</span>
+                        <span class="skill-tag highlight">Event-Driven</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">RabbitMQ</span>
+                        <span class="skill-tag">WebSocket</span>
+                        <span class="skill-tag">DDD</span>
+                        <span class="skill-tag">Clean Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background: var(--dark-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>11年間のキャリアで培った経験</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">2022年7月 - 現在</div>
+                    <h3 class="experience-title">Tech Lead</h3>
+                    <p class="experience-company">PT Teknologi Inovasi Digital（B2B SaaS企業）</p>
+                    <p class="experience-description">
+                        B2B向けHR管理SaaSプラットフォームの開発チームにて、Tech Leadとしてフロントエンド・バックエンド・インフラを横断的に担当。AI機能（RAG/LLM）の企画・設計・実装、マイクロサービスアーキテクチャへの移行を主導。10〜15名規模の技術チームを統括。
+                    </p>
+                    <div class="experience-tech">
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>NestJS</span>
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>AWS</span>
+                        <span>Kubernetes</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-date">2018年7月 - 2022年6月</div>
+                    <h3 class="experience-title">Full Stack Developer → Senior → Tech Lead</h3>
+                    <p class="experience-company">PT Ciptakarya Software（ECプラットフォーム企業）</p>
+                    <p class="experience-description">
+                        自社ECプラットフォーム・マーケットプレイスの開発チームにて、フロントエンド・バックエンド・決済システムを横断的に担当。レガシーPHP/jQueryシステムからReact/Next.js + NestJSへのフルリニューアルを推進。ECサイトのパフォーマンス改善（Lighthouse 35→92）を達成。
+                    </p>
+                    <div class="experience-tech">
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>Vue.js</span>
+                        <span>Node.js</span>
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-date">2015年7月 - 2018年6月</div>
+                    <h3 class="experience-title">Junior → Full Stack Developer</h3>
+                    <p class="experience-company">PT Solusi Digital Nusantara（SI/コンサルティング）</p>
+                    <p class="experience-description">
+                        金融・物流・小売など多様な業界のクライアント向け受託開発を担当。Python/Django、PHP/Laravel、Node.js/Express、Java/Spring Bootを用いたプロジェクトで設計・実装を経験。3年間で4つのプロジェクトを完遂。
+                    </p>
+                    <div class="experience-tech">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>PHP</span>
+                        <span>Laravel</span>
+                        <span>Node.js</span>
+                        <span>Java</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-date">2014年4月 - 2015年6月</div>
+                    <h3 class="experience-title">Software Engineer Intern</h3>
+                    <p class="experience-company">PT Prima Informatika（SI/受託開発）</p>
+                    <p class="experience-description">
+                        修士課程在学中のインターンシップとして、中小企業向け業務システムの受託開発・Webサイト制作を担当。PHP/WordPress、HTML/CSS/JavaScript等の基礎技術を実務レベルで習得。
+                    </p>
+                    <div class="experience-tech">
+                        <span>PHP</span>
+                        <span>WordPress</span>
+                        <span>JavaScript</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>直近の主要プロジェクト</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AI機能開発（RAG/LLM）</h3>
+                        <p class="project-type">B2B SaaS / AI</p>
+                    </div>
+                    <div class="project-body">
+                        <p>社内ナレッジベースを活用したRAGベースの検索システムと、カスタマーサポート向けAIチャットボットの開発・運用。</p>
+                        <ul class="project-achievements">
+                            <li>回答精度を従来比約40%向上</li>
+                            <li>一次対応自動化率を0%→65%に向上</li>
+                            <li>月間10万クエリを安定処理</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>LangChain</span>
+                            <span>OpenAI</span>
+                            <span>Pinecone</span>
+                            <span>Next.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>マイクロサービス移行</h3>
+                        <p class="project-type">Architecture / DevOps</p>
+                    </div>
+                    <div class="project-body">
+                        <p>既存モノリシックアプリケーションを段階的にマイクロサービス化。Kubernetes基盤への移行と可観測性の強化。</p>
+                        <ul class="project-achievements">
+                            <li>デプロイ頻度を月2回→週5回に向上</li>
+                            <li>MTTR（平均復旧時間）を4時間→30分に短縮</li>
+                            <li>インフラコストを約25%削減</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>NestJS</span>
+                            <span>Go</span>
+                            <span>Kubernetes</span>
+                            <span>Kafka</span>
+                            <span>GraphQL</span>
+                            <span>Terraform</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ECプラットフォーム フルリニューアル</h3>
+                        <p class="project-type">E-Commerce / Frontend</p>
+                    </div>
+                    <div class="project-body">
+                        <p>レガシーなPHP/jQueryベースのECサイトをReact/Next.js + NestJSでフルリニューアル。モバイルファースト設計。</p>
+                        <ul class="project-achievements">
+                            <li>Lighthouse Performanceスコアを35→92に改善</li>
+                            <li>コンバージョン率を約25%向上</li>
+                            <li>モバイルユーザーの離脱率を約35%削減</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Next.js</span>
+                            <span>NestJS</span>
+                            <span>GraphQL</span>
+                            <span>Elasticsearch</span>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>決済・ウォレット機能開発</h3>
+                        <p class="project-type">FinTech / Security</p>
+                    </div>
+                    <div class="project-body">
+                        <p>自社ECプラットフォーム向けウォレット機能・決済ゲートウェイ連携の開発。不正検知機能の実装。</p>
+                        <ul class="project-achievements">
+                            <li>決済成功率を94%→99.2%に向上</li>
+                            <li>不正取引検知率を約85%に向上</li>
+                            <li>レスポンス時間を800ms→200msに改善</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>Vue.js</span>
+                            <span>Redis</span>
+                            <span>Python</span>
+                            <span>scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--dark-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>お気軽にご連絡ください</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>新しいプロジェクトや技術的な課題について、お気軽にご相談ください。フルリモートでの業務委託、正社員としてのご相談、いずれも歓迎いたします。</p>
+                    <div class="contact-links">
+                        <a href="mailto:jignesh.ahir1025@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>jignesh.ahir1025@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/bigheart-x" class="contact-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/bigheart-x</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4><i class="fas fa-globe"></i> Languages</h4>
+                    <div class="language-grid">
+                        <div class="language-item">
+                            <span class="language-name">🇯🇵 日本語</span>
+                            <span class="language-level">Business Level</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">🇮🇩 インドネシア語</span>
+                            <span class="language-level">Native Level</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">🇺🇸 英語</span>
+                            <span class="language-level">Business Level (TOEIC 920)</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="margin-bottom: 16px;"><i class="fas fa-certificate"></i> Certifications</h4>
+                        <div class="language-grid">
+                            <div class="language-item">
+                                <span class="language-name">AWS SAP</span>
+                                <span class="language-level">Solutions Architect Pro</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">GCP PCA</span>
+                                <span class="language-level">Cloud Architect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 田中 悠斗. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
